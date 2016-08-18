@@ -1,1 +1,383 @@
 
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: black;  
+  color:white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size:1em;
+  box-sizing: border-box;
+}
+
+  /* --beggining of logo design-- */
+
+.outer{
+    margin:4% auto 0% auto;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    height:5.27%;
+   max-width:20.25%;
+
+}
+.inner{
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
+      height:90%;
+      margin:3% auto;
+      width:90%;
+      text-align: center;
+}
+.inner p{
+    font-size:3em;
+    margin:2px auto;
+    font-family: copperplate;
+}
+#min-only{
+     font-size:3.5em;
+    margin:2px auto;
+    font-family: copperplate;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+#big{
+    margin:0 auto;
+    padding-top: .5%;
+    width: 22%;
+    text-align: center;
+    font-size: 16px;
+    font-family: arial;
+}
+ 
+  /* --end of logo design-- */
+
+   
+     /* --beggining of nav design-- */
+
+ul{
+    margin: 0 auto;
+    margin-top:3%;
+    list-style-type: none;
+    width: 90%;
+    text-align: center;
+    overflow: hidden;
+    display: block;
+    -webkit-transition: max-height 0.4s ease-in-out;
+    transition: max-height 0.4s ease-in-out;
+}
+li{
+   display: inline-block;
+    margin-bottom: 5%;
+    line-height: 2.5em;
+    font-size: 16px;
+    width: 10.66%;
+  text-align: center;
+    font-family: forum;
+}
+.menu{
+    text-decoration: none;
+    color:white;
+    font-family: forum;
+}
+ #second{ color:#BF9515; }
+ a:not(.menu){
+    text-decoration: none;
+    color:#BF9515;   
+}
+.menu:hover{
+    color:#cccc00;
+}
+
+   /* --end of nav design-- */
+
+
+   /* --begining of choice--   */
+
+ #choice{
+    margin-top: 40px;
+    margin-left: 220px;
+     color:grey;
+}
+#choice a{
+   font-size: 16.5px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:grey;
+}
+#choice a:first-child{ color:white;
+    margin-right:8px;
+    border-right: 1px solid grey;
+    padding-right: 4px; 
+            }
+#choice p{ font-style: italic;
+ font-size: 14.5px;}
+
+    /* --end of choice--   */
+
+
+
+   /* --main content-- */
+
+ #first-main{
+     width: 72%;
+      margin:5% auto 0% auto;
+     display: block;
+ }
+
+ article{
+     width: 100%;
+     margin: 0 auto 0 auto;
+ 
+ }
+#center1{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 150%;
+    font-family: sans-serif;
+    color:rgba(191, 149, 21, 1);
+    text-align: center;
+}
+#center2 {
+    width: 50%;
+    margin: -2% auto 7% auto;
+    color: grey;
+    text-align: center;
+}
+
+.appet{
+    width: 25%;
+    float: left;
+    margin-left: 4%;
+    margin-bottom: 2%;
+   
+}
+img:not(#foot){
+    width: 95%;
+    height: 200px;
+}
+#margins{
+   margin-right: 5%;
+}
+.appet p:nth-child(2){
+    width: 50%;
+    margin:10% auto 0 auto;
+    text-align: center;
+    font-size: 1.1em;
+    padding-bottom: 5%;
+    border-bottom: 2px solid white;
+}
+.appet p:nth-child(3){
+    text-align: center;
+}
+.appet p:nth-child(4)
+{
+    text-align: center; 
+}
+#center3{
+    text-align: center;
+   margin-bottom: 4%;
+    font-size: 150%;
+    font-family: sans-serif;
+    color:rgba(191, 149, 21, 1);
+}
+
+#clear{
+    clear: both;
+}
+
+#second-main{
+    display: none;
+     width: 72%;
+      margin:5% auto 0% auto;   
+}
+#link1:hover,#link2:hover{ cursor: pointer};
+
+    /* --end of main content-- */
+
+   #fake{
+       display: none;
+   }
+
+
+   /* --the footer-- */
+        footer{
+     clear:both;
+     margin: 1% auto 0 auto;
+     border-top: 1px solid white;
+     width: 73%;
+ }
+ .open, .adress{
+     margin-top:2.5%;
+     width: 25%;
+     float: left;
+     margin-right: 3%;
+     line-height: 0.5em;
+  
+ }
+ .location{
+     margin-top:2%;
+     width: 33%;
+     float: left;
+ }
+ .final{
+     color:#BF9515;
+     margin-bottom:5%;
+ }
+ #foot{
+     margin-top: 0;
+ }
+
+   /* --end of footer--*/
+
+/*--   side menu       --*/
+         .open-menu{
+          width: 75%;
+          height: 70px;
+          box-sizing: border-box;
+           padding: 10px 15px;
+          margin-left: 11%;
+          margin-top: 3%;
+          display: none;
+      }
+    #hamb-menu{
+    float: right;
+    clear: both;
+    height: auto; 
+    width: auto; 
+    max-width: 6%; 
+    max-height: 75%;
+    margin-top: -7%;
+    cursor: pointer;
+     margin-right: 8%;
+    }
+    .open-menu p{
+    float: left;
+    text-align: left;
+    font-size: 18px;
+    line-height: 90%;
+    padding-left:15%;
+    font-size: 1.3em;
+}
+
+   /* --end of side menu-- */
+
+
+ /* --media querries-- */   
+
+   @media screen and (max-width:1004px){
+
+       .open-menu{
+       display: block;
+   }
+  
+   ul{
+       max-height: 0;
+
+   }
+   li{
+       float: none;
+       width: 100%;
+       text-align: left;
+       margin-bottom: 0;
+       cursor: pointer;
+   }
+   li:hover{
+       background-color: 	#708090;
+   }
+   .open-on-click{
+    max-height: 20em;
+}
+
+   }
+
+    @media screen and (max-width:939px){
+        #first-main, #second-main{
+            width: 100%;
+        }
+        .appet{
+            width: 34%;
+            margin-left: 10%;
+            height: 400px;
+        }
+        #margins{
+            margin-right: 0;
+        }
+     .open, .adress{
+         width: 50%;
+     }
+    }
+
+     @media screen and (max-width:830px){
+         #hamb-menu{
+             max-height: 55%;
+         }
+     }
+
+   @media screen and (max-width:718px){
+        #choice{
+            margin-left: 15%;
+            
+        }
+        #hamb-menu{
+            max-width: 7%;
+            max-height: 55%;
+            margin-top: -8%;
+        }
+        .location{
+            float: none;
+        }
+   }
+
+   @media screen and (max-width:590px){
+        .outer{
+         display: none;
+        }     
+        #min-only{
+            display: block;
+            font-size: 2.5em;
+            margin-top: 5%;
+        }
+        #hamb-menu{
+            margin-top: -11%;
+        }
+        #choice{
+            margin-left: 8%;
+        }
+        #foot{
+            width: 170%;
+        }
+   }
+
+   @media screen and (max-width:500px){
+
+       .appet{
+           width: 70%;
+           height: 360px;
+           margin-bottom: 3%;
+           margin-left: 18%;
+           
+       }
+        .happy{
+                 line-height: 150px;
+             }
+             .adress, .open, .location{
+                line-height: 1em;
+             }
+             #foot{
+                 width: 190%;
+                 height: 100px;
+             }
+             #hamb-menu{
+                 margin-top:-11%;
+                 max-height: 50%;
+             }
+   }
+
+   @media screen and (max-width:430px){
+       #hamb-menu{
+           max-height: 50%;
+           margin-top: -16%;
+           max-width: 10%;
+       }
+   }
