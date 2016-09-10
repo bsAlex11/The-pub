@@ -1,4 +1,4 @@
-var buton = document.getElementById("hamb-menu");                          // drop menu button 
+var buton = document.getElementById("hamb-menu");
 
    buton.addEventListener("click",apasa);
 
