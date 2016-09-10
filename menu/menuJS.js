@@ -1,4 +1,3 @@
-
 function show () 
 {var element1 = document.getElementById("first-main");
  var element2 = document.getElementById("second-main");
