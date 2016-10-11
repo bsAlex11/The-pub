@@ -142,7 +142,7 @@ select:hover{
     background-color: lightgrey;
 }
 .menu-presentation{
-    width: 58.3%;
+    width: 56.3%;
     border-right:  0.5px solid grey;
     height: 1080px;
     position: absolute;
@@ -251,6 +251,9 @@ margin-right: 10%;
     height: 6%;
     border-bottom: 0.5px solid grey;
     line-height: 30px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 #order > p {
     width: 50%;
@@ -271,11 +274,12 @@ margin-right: 10%;
     display: block;
 }
 #cart{
-    height: 250px;
+    height: 270px;
      border-bottom: 0.5px solid grey;
      position: relative;
      margin: 0;
      padding: 0;
+     overflow-y: scroll;
 }
 
 #cart p:nth-child(2){                
@@ -287,21 +291,21 @@ margin-right: 10%;
     line-height: 1.6em;
 }
 #subtotal{
-    border-top: 1px solid #BF9515; 
+    border-bottom: 1px solid #BF9515; 
     color: #BF9515;
    position: absolute;
     font-size: 1.2em;
-    width: 80%;
+    width: 20%;
     height: 40px;
-    margin-top: 20px;
-    margin-left: 8%;
-    padding-left: 3%;
+    margin-top: 70px;
+    margin-left: 1%;
+    padding: 0 1% 1.5% 1%;
 }
 #subtotal p:nth-child(2){       /* price in cart */
     width: 30%;
     position: absolute;
-    top: 40%;
-    left: 75%;
+    top: 2%;
+    left: 60%;
     font-size: 1em;
     color: #BF9515;
 }
@@ -329,10 +333,10 @@ textarea:focus{
 }
 #special p{
     font-size: 1.2em;
-    padding-left: 10%;
+    padding-left: 8%;
     width: 80%;
     border-bottom: 1px solid grey;
-    margin-left: auto;
+    margin-left: 4%;
     margin-right: auto;
     margin-bottom: 10%;
     padding-bottom: 6%;
@@ -347,6 +351,10 @@ button{
     background-color: #BF9515;
     border:0;
     cursor: pointer;
+    margin-top: 90px;
+}
+button:hover{
+     box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
 }
 .edit p{
     display: none;

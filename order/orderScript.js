@@ -124,7 +124,7 @@ var buton = document.getElementById("hamb-menu");
           specialRequestNode.appendChild(specialText);
           modal.appendChild(specialRequestNode);
           itemsToRemove.push(specialRequestNode);
-
+    
           }
 
     
@@ -141,7 +141,7 @@ var buton = document.getElementById("hamb-menu");
 
                                  // info for cart added in object
            
-           var itemName = document.getElementById("clone-name").innerHTML;
+           var itemName = document.getElementById("clone-name").textContent;
            var itemPrice = document.getElementById("clone-pret").innerHTML;
            var request = document.getElementById("special-request").value;
            
@@ -164,7 +164,7 @@ var buton = document.getElementById("hamb-menu");
                        gasit = 0;
               }
               
-                    if(!gasit && gNumberofItems < 4)
+                    if(!gasit  )
                {                                  // add products to cart
          
                var cartContainer = document.getElementById("cart");
@@ -215,8 +215,18 @@ var buton = document.getElementById("hamb-menu");
                 
                cartContainer.appendChild(itemDiv);
                gNumberofItems++;     // global number of items
+
+var itemDetails = {      // object with info about the item
+                  nume: itemName,
+                  pret: itemPrice,
+                  quant: 1,
+                  special: request
+                }; 
+          itemsInList.push(itemDetails);  // add the object to the globar array of  objects
+               
                }
               
+           
                else 
                {
                   document.getElementById("numar-produse").innerHTML = parseInt(document.getElementById("numar-produse").innerHTML) + 1;
@@ -230,27 +240,19 @@ var buton = document.getElementById("hamb-menu");
           {
               var obj = itemsInList[j];
                   if(obj.nume == itemName)
-                    s++;
+                    {
+                     itemsInList[j].quant++;
+                     s =  itemsInList[j].quant;      // search for items of the same type in the array of objects and increase the quant if found
+                    }
           }                                      // search for all items of the same type added to the list
 
             for(var z = 0; z < listaDivs.length; z++)
             {
                  if(listaDivs[z].querySelector("#numeProdus").innerHTML == itemName)
-                    listaDivs[z].querySelector("#numarDeIteme").innerHTML = s + 1;
+                    listaDivs[z].querySelector("#numarDeIteme").innerHTML = s;
             }
                }        // find the item of which quantity is to be increased in it's parent div (from a list of parent divs, the added items)'
 
-
-                var itemDetails = {      // object with info about the item
-                  nume: itemName,
-                  pret: itemPrice,
-                }; 
-
-              itemsInList.push(itemDetails);     // create a global array of objects with info about the items
-          
-               var subtotal = document.getElementById("subtotal");
-               subtotal.style.marginTop = "205px"; 
-                        
    
                                                     // hide the modal  and remove the nodes
                    overlay.style.display = "none";
@@ -272,10 +274,18 @@ var buton = document.getElementById("hamb-menu");
     
                     //  add the item in my order, increase the price, increase the individual quantity
 
-            var obj = { nume: this.parentNode.querySelector("#numeProdus").innerHTML,
-                        pret: this.parentNode.querySelector("#pretProdus").innerHTML,
-            };
-           itemsInList.push(obj);
+        var nume = this.parentNode.querySelector("#numeProdus").innerHTML;
+
+            for (var i = 0; i < itemsInList.length; i++)
+            {
+              var obj = itemsInList[i];
+                  if(obj.nume == nume)
+                    {
+                      itemsInList[i].quant++;
+                      break;
+                    }
+            }
+   
           
               // create an object with info about the product, add it to the globar array of objects with items' details
           }
@@ -305,7 +315,7 @@ var buton = document.getElementById("hamb-menu");
            {                                 // display the cart image and text if the cart was emptied
              document.getElementById("bag").style.display = "block";
              document.getElementById("browse").style.display = "block";
-             document.getElementById("subtotal").style.marginTop = "20px";
+    
            }
 
             var quant = parseInt(this.parentNode.querySelector("#numarDeIteme").innerHTML);
@@ -320,96 +330,6 @@ var buton = document.getElementById("hamb-menu");
               {
                 this.parentNode.querySelector("#numarDeIteme").innerHTML = parseInt(this.parentNode.querySelector("#numarDeIteme").innerHTML) - 1;
               }
-
-var listaDivs = document.getElementsByClassName("item-div");
-              if(itemsInList.length > listaDivs.length )   // check if we have to put items in the cart when we delete one, if there are more items in array of objects
-      {
-         var listaDivs = document.getElementsByClassName("item-div");
-                                                     // a list with all the divs with item name and price added
-           for(var i = itemsInList.length-1; i >= 0; i--)
-             { var gasit = 0;                  // start at the end of the array of obj with item info
-               var numeObj = itemsInList[i].nume; 
-           
-                 for(var j = 0; j < listaDivs.length; j++)
-                    {                            // and search through all item divs in cart to see if we have items in object that are not yet displayed in cart
-                      var numeDiv = listaDivs[j].querySelector("#numeProdus").innerHTML; 
-                        if(numeObj !== numeDiv)
-                          {gasit++;
-                          var numeGasit = numeObj; 
-                          var obj = itemsInList[i];
-                          }
-                    }                                 // if we find one different item, that is in the array of objects but not in cart, save it
-                    if(gasit)
-                     break;
-                              
-             }
-listaDivs = document.getElementsByClassName("item-div");
-   
-              for (var i=0; i<listaDivs.length; i++)    // double check if the item found above is not in the cart divs
-              {  var gasit = 0;                            
-                var alt = listaDivs[i].querySelector("#numeProdus").innerHTML; 
-                  if(numeGasit == alt)
-                     {
-                       gasit++;
-                       break;
-                     }
-                     else 
-                       gasit = 0;
-              }
-
-      var cantitate = 0;
-        for (var i = 0; i < itemsInList.length; i++)    // see how many of the same type are in the array of objects
-             if(numeGasit == itemsInList[i].nume )
-                cantitate++;
-
-             if(!gasit && gNumberofItems < 4)
-               {                                  // add products to cart
-         
-               var cartContainer = document.getElementById("cart");
-               var itemDiv = document.createElement("div");
-               itemDiv.className = "item-div";               // product item div container
-
-               var quantContent = document.createTextNode(cantitate);
-               var sign = document.createTextNode(" x");
-               var span = document.createElement("span");
-               span.setAttribute("id","numarDeIteme");
-               span.appendChild(quantContent);
-               var para = document.createElement("p");
-               para.appendChild(span);
-               para.appendChild(sign);
-               itemDiv.appendChild(para);
-               para.setAttribute("id","quant");    // add the qunatity for each item in cart
-
-               var cartP = document.createElement("P");
-               var text = document.createTextNode(obj.nume);
-               cartP.setAttribute("id", "numeProdus");
-               cartP.appendChild(text);
-               itemDiv.appendChild(cartP);           // create and append the name of the product
-              
-               var price = document.createElement("p");
-               var priceText = document.createTextNode(obj.pret);
-               price.setAttribute("id","pretProdus");
-               price.appendChild(priceText);
-               itemDiv.appendChild(price);        // create and append the price
-
-               var plus = document.createTextNode("+");
-               var plusContainer = document.createElement("div");
-               plusContainer.className = "plus-sign";
-               plusContainer.addEventListener("click",plusFunction);   // add event for adding the 1 more of the same item
-               plusContainer.appendChild(plus);
-               itemDiv.appendChild(plusContainer);     // add the + sign to item div
-
-               var minus = document.createTextNode("-");
-               var minusContainer = document.createElement("div");
-               minusContainer.setAttribute("id","minus-sign");
-               minusContainer.addEventListener("click",minusFunction);
-               minusContainer.appendChild(minus);
-               itemDiv.appendChild(minusContainer); 
-
-               cartContainer.appendChild(itemDiv);
-               gNumberofItems++;
-               }
-        }
 
     }
 
