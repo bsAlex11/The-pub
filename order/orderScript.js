@@ -69,11 +69,11 @@ var buton = document.getElementById("hamb-menu");
 
         function adauga(){
 
-           this.previousElementSibling.innerHTML = this.value;
-           this.parentNode.className = "";
              if(this.value == "")
-                 this.previousElementSibling.innerHTML = placeHolder;
-        }
+                { this.previousElementSibling.innerHTML = placeHolder;
+                  this.parentNode.className = "";
+                }  
+    }
 
         //  === Modal Box ===//
 
@@ -243,7 +243,8 @@ var itemDetails = {      // object with info about the item
                     {
                      itemsInList[j].quant++;
                      s =  itemsInList[j].quant;      // search for items of the same type in the array of objects and increase the quant if found
-                    }
+                     obj.special = request; 
+                  }
           }                                      // search for all items of the same type added to the list
 
             for(var z = 0; z < listaDivs.length; z++)
@@ -302,12 +303,7 @@ var itemDetails = {      // object with info about the item
 
 
         var numeProdus = this.parentNode.querySelector("#numeProdus").innerHTML;
-            for(var i = 0; i < itemsInList.length; i++)
-               {                                // remove the object with item details from the array of objects
-                 var obj = itemsInList[i];
-                 if(numeProdus == obj.nume)
-                   itemsInList.splice(i,1);
-               }
+          
 
         var iteme = parseInt(document.getElementById("numar-produse").innerHTML);       
         
@@ -323,13 +319,25 @@ var itemDetails = {      // object with info about the item
               if(quant == 1)        // verify if is only one item of a type in list to remove the whole div
               {
                 this.parentNode.parentNode.removeChild(this.parentNode);
-                gNumberofItems--;  
+                gNumberofItems--; 
+                 for(var i = 0; i < itemsInList.length; i++)
+               {                                // remove the object with item details from the array of objects
+                 var obj = itemsInList[i];
+                 if(numeProdus == obj.nume)
+                   itemsInList.splice(i,1);
+               } 
                 
               }
               else             // or reduce just the qunatity for the item
               {
                 this.parentNode.querySelector("#numarDeIteme").innerHTML = parseInt(this.parentNode.querySelector("#numarDeIteme").innerHTML) - 1;
-              }
+                 for(var i = 0; i < itemsInList.length; i++)
+               {                                // reduce the quantity for that item in the array of objects
+                 var obj = itemsInList[i];
+                 if(numeProdus == obj.nume)
+                   itemsInList[i].quant--;
+               } 
+             } 
 
     }
 
@@ -376,5 +384,295 @@ specialInput.addEventListener("blur", addSpecial);
      }
 
          
+       /* == delivery section == */
+
+     var placeOrderButton = document.getElementById("place-delivery");
+     var deliveryContent = document.getElementById("order-container");
+     var mainContent = document.getElementsByTagName("main")[0];
+     var footer = document.getElementsByTagName("footer")[0];
+     var orderSection = document.getElementById("items-in-order");
+     placeOrderButton.addEventListener("click",showDeliveryContent);
+                                                                       // add the ordered items in the purchase container
+        function showDeliveryContent(){
+
+                                       // display message if cart is empty,remove it after 3 seconds
+      if(itemsInList.length == 0)
+          {
+            document.getElementById("noItemsWarning").className = "showWarning";
+            setTimeout(function(){
+                 document.getElementById("noItemsWarning").className = "";
+            },3000);
+            return;
+          } 
+
+            mainContent.style.display = "none";
+            deliveryContent.style.display = "block";
+            document.getElementById("delivery").style.display = "block";
+            footer.style.marginTop = "49%";
+        
+         document.getElementById("deliveryBubble").style.opacity = "1";
+
+         document.getElementById("finalNrItems").textContent = parseInt(document.getElementById("numar-produse").textContent); 
+         document.getElementById("ttPrice").textContent = document.getElementById("pret-subtotal").textContent;
+
+  // clean the cart if the user exites the shop section, adds/removes items and comes back
+
+     var addedItemsinCart = document.getElementsByClassName("added-items");
+     if(addedItemsinCart.length > 0)
+        for(let a = addedItemsinCart.length-1; a >= 0 ; a--)
+           addedItemsinCart[a].parentNode.removeChild(addedItemsinCart[a]);
+
+          // adding the items in the shop list div
+
+           for (var i = 0; i < itemsInList.length; i++)
+             {
+                  var obj = itemsInList[i];
+                  var addedItemDiv = document.createElement("div");
+                  addedItemDiv.className = "added-items";
+
+                  var p = document.createElement("p");
+
+                  var span = document.createElement("span");
+                  span.className = "finalQuant";
+                  span.appendChild(document.createTextNode(obj.quant));
+                  p.appendChild(span);
+
+                  p.appendChild(document.createTextNode(" x " + obj.nume));
+                  
+                  var spanPret = document.createElement("span");
+                  spanPret.className = "finalPrice";
+                  var pret = parseInt(obj.quant)* parseInt(obj.pret);
+                  pret = pret + "";
+                  spanPret.appendChild(document.createTextNode(pret));
+                  p.appendChild(spanPret);
+                  p.appendChild(document.createTextNode("  Lei"));
+ 
+                  addedItemDiv.appendChild(p);
+                  orderSection.appendChild(addedItemDiv);
+                                                           // added info about quantity, name and price of the product 
+                  if(obj.special != "")
+                    {
+                        var specialNode = document.createElement("p");
+                        specialNode.className = "finalSpecial";
+                        specialNode.appendChild(document.createTextNode("Special request: " + obj.special));
+                        addedItemDiv.appendChild(specialNode);
+                    }                                                   // special request for each item
+             }
+
+                 var finalSpecial = document.getElementById("specialText").value;
+ 
+                   if(finalSpecial != "")
+                    {
+                       var RequestNode = document.createElement("p");
+                       var addedItemDiv = document.createElement("div");
+                       addedItemDiv.setAttribute("id","finalSpecialRequest");
+                       RequestNode.appendChild(document.createTextNode("Final Request: " + finalSpecial));
+                       addedItemDiv.appendChild(RequestNode);
+                       orderSection.appendChild(addedItemDiv);
+                    }
+                                                                // delivery special request
+          // add price to the payment section    
+      
+        document.getElementById("finalTotal").textContent = document.getElementById("pret-subtotal").textContent + " Lei";
+         document.getElementById("finalTotal2").textContent = document.getElementById("pret-subtotal").textContent + " Lei";  
+         
+   }  
+
+         /* == navigate through the place order divs ==   */
 
           
+  var toContact = document.getElementById("toContact");
+  var toPayment = document.getElementById("toPayment");
+  var toConfirmation = document.getElementById("toConfirmation");
+
+  var buttonList = [toContact, toPayment, toConfirmation];
+
+  var contactSection = document.getElementById("contact");
+  var paymentSection = document.getElementById("payment");
+  var confirmationSection = document.getElementById("confirmation");
+  var deliverySection = document.getElementById("delivery");
+
+  var sectionList = [contactSection, paymentSection, confirmationSection];
+
+    // 2 arrays that store references to buttons and divs that are to be shown when clicked the specific button
+    // the clicked button and the specific div that is to be show share the same index
+    // when looping through the array buttons, we search for the clicked one (this) and store it's index
+    // then loop through the array with divs and show the one with that index
+
+  for(var i = 0; i < buttonList.length; i++)
+      buttonList[i].addEventListener("click", showSpecificDiv,false);
+
+      function showSpecificDiv(event){
+       var progressList = document.getElementsByClassName("bubble");
+       var currentButton; 
+
+         for(var x = 0; x < buttonList.length; x++)
+            {
+              
+            if(buttonList[x] === this)
+              {
+                currentButton = x;        
+              }
+                
+            } 
+
+              
+         for (var j = 0; j < sectionList.length; j++)    // display each of purchase phase section
+            {
+              deliverySection.style.display = "none";
+
+
+           if (currentButton == 1)            // user input validation in contact section
+            {   
+                var namePattern = /^[a-zA-Z ]+$/;
+                var phonePattern = /^[0-9]{10}$/;
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                var firstName = document.getElementById("firstName").value;
+                var secondName = document.getElementById("secondName").value;
+                var phone = document.getElementById("phone").value;
+                var email = document.getElementById("email").value;
+
+              if(!(namePattern.test(firstName)) || !(namePattern.test(secondName)) || !(phonePattern.test(phone)) || !(emailPattern.test(email))){
+                   document.getElementById("warning").style.display = "block";
+                   return;
+                 }
+               else 
+               {
+                 document.getElementById("warning").style.display = "none";
+               }  
+                
+            }
+               
+             if(currentButton == 2)
+               {
+                   document.getElementById("user-name").textContent = document.getElementById("firstName").value + " " + document.getElementById("secondName").value;
+                   document.getElementById("mail").textContent = document.getElementById("email").value;
+                   document.getElementById("phone-number").textContent = document.getElementById("phone").value;
+                   document.getElementById("ultimPret").textContent = document.getElementById("ttPrice").textContent 
+             }
+
+
+                if(j == currentButton)         // if index of div == index of button show that div and hide all others
+                    {
+                      sectionList[j].style.display = "block";
+                    }
+                else
+                {
+                  sectionList[j].style.display = "none";
+                } 
+
+
+                if(currentButton >= 0 && currentButton < 3)      // display the green check mark and make the next div in progress bar lightly
+                 {
+                     var check = progressList[currentButton].querySelector("img");
+                     check.style.display = "inline";
+                     progressList[currentButton].parentNode.style.opacity = "0.7";
+                     progressList[currentButton + 1].parentNode.style.opacity = "1"; 
+                }  
+            } 
+
+      } 
+                
+                 /* == show green check mark or yellow exclamation sign == */
+
+      var inputsList = Array.prototype.slice.call(document.getElementsByClassName("user-input"));
+
+       for(var y = 0; y < inputsList.length; y++)
+         inputsList[y].addEventListener("blur", validate);           
+
+          function validate(){
+           
+            var namePattern = /^[a-zA-Z ]+$/;
+            var phonePattern = /^[0-9]{10}$/;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(this.id == "firstName" || this.id == "secondName")
+              {
+                 if(namePattern.test(this.value))
+                   { this.parentNode.querySelector(".good").style.display = "block";
+                     this.parentNode.querySelector(".bad").style.display = "none";                
+                   }
+                   else 
+                    { this.parentNode.querySelector(".bad").style.display = "block";
+                      this.parentNode.querySelector(".good").style.display = "none";
+                   } 
+              }
+            if(this.id == "phone")
+               {
+                   if(phonePattern.test(this.value))
+                   { this.parentNode.querySelector(".good").style.display = "block";
+                     this.parentNode.querySelector(".bad").style.display = "none";                
+                   }
+                   else 
+                    { this.parentNode.querySelector(".bad").style.display = "block";
+                      this.parentNode.querySelector(".good").style.display = "none";
+                   } 
+
+               }
+            if(this.id == "email")
+            {
+                if(emailPattern.test(this.value))
+                    { this.parentNode.querySelector(".good").style.display = "block";
+                     this.parentNode.querySelector(".bad").style.display = "none";                
+                   }
+                   else 
+                    { this.parentNode.querySelector(".bad").style.display = "block";
+                      this.parentNode.querySelector(".good").style.display = "none";
+                   } 
+            }     
+          }
+          
+   
+ 
+         /* == move backwards through purchase divs == */
+
+  var backToPayment = document.getElementById("backToPayment");
+  var backtoContact = document.getElementById("backToContact");
+  var backToDelivery = document.getElementById("backToDelivery");
+  var backToMenu = document.getElementById("backToMenu");
+  
+  var backwardButtonList = [backToMenu, backToDelivery, backtoContact, backToPayment ];
+  var backwardDivsList = [mainContent, deliverySection, contactSection, paymentSection];
+  var currentBackButton;
+
+     for(var a = 0; a < backwardButtonList.length; a++)
+        backwardButtonList[a].addEventListener("click",moveBack);
+
+        function moveBack(event){
+              
+           for(var i = 0; i < backwardButtonList.length; i++)
+               {
+                  if(backwardButtonList[i] === this)
+                      currentBackButton = i;
+               } 
+
+var progressList = document.getElementsByClassName("bubble");
+
+            if(currentBackButton > 0 && currentBackButton < 4)      // display the green check mark and make the next div in progress bar lightly
+                 {
+                     var check = progressList[currentBackButton-1].querySelector("img");
+                     check.style.display = "none";
+                     progressList[currentBackButton-1].parentNode.style.opacity = "1";
+                     progressList[currentBackButton].parentNode.style.opacity = "0.7"; 
+                }     
+
+
+           for(var j = 0; j < backwardDivsList.length; j++)
+              {
+                   if(currentBackButton == 0)
+                     { deliveryContent.style.display = "none";
+                       footer.style.marginTop = "-1px";
+                     }
+                  if(j==currentBackButton)
+                    {
+                       backwardDivsList[j].style.display = "block";
+                       document.getElementById("confirmation").style.display = "none";
+                    }
+                   else 
+                   {
+                     backwardDivsList[j].style.display = "none";
+                   } 
+              }       
+
+        }
+
+  

@@ -17,12 +17,12 @@
       <p id="big"> The best night in town</p>
     <nav>
         <ul>
-            <li><a class="menu" href="E:\html\Web1\the pub\index.html">HOME </a></li>
-              <li><a href="E:\html\Web1\the pub\menu\menu.html" class="menu">MENU </a></li>
-               <li><a href="E:\html\Web1\the pub\order\order.html" class="menu" id="third">ORDER LINE </a></li>
-                 <li><a href="#" class="menu">EVENTS </a></li>
-                   <li><a href="#" class="menu">ABOUT US </a></li>
-                     <li><a href="#" class="menu">GALLERY </a></li>
+            <li><a class="menu" href="..\index.html">HOME </a></li>
+              <li><a href="..\menu\menu.html" class="menu">MENU </a></li>
+               <li><a href="#" class="menu" id="third">ORDER LINE </a></li>
+                 <li><a href="..\events\events.html" class="menu">EVENTS </a></li>
+                   <li><a href="..\about us\about us.html" class="menu">ABOUT US </a></li>
+                     <li><a href="..\gallery\gallery.html" class="menu">GALLERY </a></li>
         </ul>  
           <div class="open-menu">
              <p>MENU </p>
@@ -180,7 +180,7 @@
          <div class="wrap margin left">
              <img src="rice.jpeg" id="food"/>
               <div id="text">
-                  <p>Rice & Broccoli </p>
+                  <p>Rice &amp; Broccoli </p>
                    <p id="secondpara">27 Lei </p>
                    <p id="item-details"  >This is an item on the menu. A brief description</p>
               </div>    
@@ -333,19 +333,23 @@
         <div id="cart">
             <img src="bag.png" id="bag"/>
             <p id="browse">Browse our menu and start adding items to your order </p>
-          <div id="subtotal">
-            <p>Subtotal </p>
+          
+        </div>   
+         
+         <div id="subtotal">
+         <p>Subtotal </p>
             <p> <span id="pret-subtotal"> 0 </span> Lei </p>
-           </div>
-        </div>      
+           </div>   
 
          <div id="special" class="">  
           <p><span> + </span>Special requests</p>
-             <textarea placeholder="Special request"></textarea>
+             <textarea id="specialText" placeholder="Special request" rows="10" cols="4" ></textarea>
         </div>        
-    <button type="sumbit">ORDER NOW <span></span></button>
+    <button type="sumbit" id="place-delivery">ORDER NOW <span></span></button>
 
-        
+    <div id="noItemsWarning" class="">
+       <p>Cart is empty. Add some items.</p>
+    </div>           
 
   </aticle>
 </main>
@@ -386,6 +390,152 @@
     
         <input id="order-button"  type="submit" value="+    ADD TO MY ORDER">
   </div>
+
+  <div id="order-container">
+   
+      <div id="items-in-order">
+           
+           <div>
+               <p>My Order (<span id="finalNrItems">0</span>) items</p>
+           </div>
+ 
+
+        </div>  
+
+        <div id="totalPrice">
+            <p>Total: <span id="ttPrice">0</span> Lei</p>
+        </div>    
+
+     <div id="delivery-progress">
+
+       <div class="flex-items-progressBar" id="deliveryBubble"> 
+         <div class="bubble">
+             <p>1</p>
+             <img src="passed.png"/>
+        </div>  
+        <p>Delivery </p>
+          <img src="right-arrow.png" id="arrow">
+     </div>
+
+      <div class="flex-items-progressBar"> 
+         <div class="bubble">
+             <p>2</p>
+             <img src="passed.png"/>
+        </div>  
+        <p>Contact </p>
+          <img src="right-arrow.png" id="arrow">
+     </div>
+
+      <div class="flex-items-progressBar"> 
+         <div class="bubble">
+             <p>3</p>
+             <img src="passed.png"/>
+        </div>  
+        <p>Payment </p>
+          <img src="right-arrow.png" id="arrow">
+     </div>
+
+      <div class="flex-items-progressBar"> 
+         <div class="bubble">
+             <p>4</p>
+        </div>  
+        <p>Confirmation </p>
+
+     </div>
+       
+     </div> 
+
+
+
+     <div id="delivery" class="order-div">
+         
+          <p>You're placing an order for Pickup. </p>
+          <div id="pickupAdress">
+             <p>Pickup from: </p>
+             <p>Alexadnru Vlahuta Street, number 5 </p>
+          </div>    
+         <a href="https://www.google.ro/maps/@46.7703841,23.5619228,17z?hl=en" target="_blank"><img id="Pickup-map" src="pickup.jpg"/> </a> 
+
+         <button id="backToMenu">Back to Menu</button>
+         <button id="toContact">Continue</button>
+
+     </div>    
+
+     <div id="contact" class="order-div">
+         <p>Let's add your contact details</p>
+         
+         <fieldset>
+            <legend>First Name</legend> 
+         <input type="text" id="firstName" class="user-input">
+         <img class="good" src="good.png"/>
+         <img src="bad.png" class="bad"/>
+         </fieldset>
+
+         <fieldset>
+            <legend>Second Name</legend> 
+         <input type="text" id="secondName" class="user-input">
+         <img class="good" src="good.png"/>
+         <img src="bad.png" class="bad"/>
+         </fieldset>
+
+         <fieldset>
+            <legend>Telephone Number</legend> 
+         <input type="text" id="phone" class="user-input">
+         <img class="good" src="good.png"/>
+         <img src="bad.png" class="bad"/>
+         </fieldset>
+
+         <fieldset>
+            <legend>Email</legend> 
+         <input type="text" id="email" class="user-input">
+         <img class="good" src="good.png"/>
+         <img src="bad.png" class="bad"/>
+         </fieldset>
+    
+      <p id="warning">Not so fast, please fill out all the forms.</p>
+
+         <button id="backToDelivery">Back to Delivery</button>
+         <button id="toPayment">Continue</button>
+         
+     </div> 
+
+     <div id="payment" class="order-div">
+         <p>We accept only cash</p>
+         <p>Your total is: <span id="finalTotal">0 <span> Lei </p>
+         <div> 
+             <p>Cash </p>
+             <img src="cash.png"/> 
+            <p><span id="finalTotal2">0<span> Lei</p>
+         </div>   
+         <button id="backToContact">Back to Contact</button>
+         <button id="toConfirmation">Continue</button>
+     </div>     
+
+     <div id="confirmation" class="order-div">
+         
+
+         <div id="personal-info">
+              <img src="user.png"/>
+              <p id="user-name"></p>
+              <img src="phone.png"/>
+              <p id="phone-number"></p>
+              <img src="location.png"/>
+              <p>Pickup only</p>
+              <img src="clock.png"/>
+              <p>Up to 20 minutes </p>
+              <img src="mail.png"/>
+              <p id="mail"></p>
+              <p>Paying with:</p>
+              <p>Cash</p> <span id="ultimPret">0</span><span>Lei</span>
+         </div>    
+        <button id="backToPayment">Back to Payment</button>
+         <button>Place Order</button>
+
+     </div>   
+
+  </div>    
+
+
  <script type="text/javascript" src="orderScript.js"> </script>
   </body>
 </html>    

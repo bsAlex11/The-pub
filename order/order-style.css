@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+
 body{
  margin: 0;
   padding: 0;
@@ -202,10 +205,10 @@ select:hover{
     margin-bottom: 4%;
 }
 .left{
-    margin-left: .8%;
+    margin-left: 3.5%;
 }
 .margin{
-margin-right: 10%;
+margin-right: 4.5%;
 }
 #text{
     position: absolute;
@@ -242,10 +245,10 @@ margin-right: 10%;
      /*-- shop part --*/
 
 #shopping{
-   width: 24.7%;
+   width: 26.5%;
     float: right;
     height: 1080px;   
-  
+    box-sizing: border-box;
 }
 #order{
     height: 6%;
@@ -269,17 +272,20 @@ margin-right: 10%;
 }
 #bag{
     height: 25%;
-    width: 25%;
+    width: 24%;
     margin: 34% auto 3% auto;
     display: block;
 }
 #cart{
     height: 270px;
+    width: 100%;
      border-bottom: 0.5px solid grey;
      position: relative;
      margin: 0;
+     margin-left: -1.5%;
      padding: 0;
-     overflow-y: scroll;
+     overflow-y: auto;
+     overflow-x: hidden;
 }
 
 #cart p:nth-child(2){                
@@ -330,11 +336,15 @@ textarea:focus{
     font-weight: bold;
     margin-right: 7%;
     cursor: pointer;
+    width: 80%;
+    max-width: 80%;
 }
 #special p{
     font-size: 1.2em;
     padding-left: 8%;
     width: 80%;
+    max-width: 80%;
+    overflow: hidden;
     border-bottom: 1px solid grey;
     margin-left: 4%;
     margin-right: auto;
@@ -369,6 +379,8 @@ button:hover{
 .item-div{
     cursor: pointer;
     height: 45px;
+    width: 100%;
+    margin-left: 2%;
     padding-left:10px;
     border-top:.1px solid black;
     box-sizing: border-box;
@@ -424,16 +436,15 @@ button:hover{
 
 .item-div:hover{
     background-color: #1c1818;
-    border-left: 0.1px solid grey;
 }
 .item-div p:nth-child(2){           /* item name  */
    margin-top: -40px !important;
-   margin-left: 30px !important;
+   margin-left: 25px !important;
    color: #BF9515 !important;  
 }
 .item-div p:nth-child(3){        /* price */
     margin-top: -55px;
-    margin-left: 133px;
+    margin-left: 138px;
 }
 #quant{                /* quantity */
     width: 15%;
@@ -441,6 +452,52 @@ button:hover{
     margin-top: 5px;
     height: 20px;
 }
+
+#noItemsWarning{                /* warning when cart is empty*/
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 70px;
+    margin: 11% auto 0 auto;
+    text-align: center;
+    background-color: #555651;
+    color: white;
+    opacity: 0;
+  -webkit-transition: opacity 1s ease-in;
+  -moz-transition: opacity 1s ease-in;
+  -ms-transition: opacity 1s ease-in;
+  -o-transition: opacity 1s ease-in;
+  transition: opacity 1s ease-in;
+}
+
+#noItemsWarning:after, #noItemsWarning:before{
+  bottom: 100%;
+  left: 50%;
+  content: " ";
+  border: solid transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+#noItemsWarning:after{
+    border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #BF9515;
+	border-width: 10px;
+    margin-left: -12px;
+}
+#noItemsWarning:before{
+    border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #BF9515;
+	border-width: 10px;
+    margin-left: -12px;
+}
+
+.showWarning{
+    opacity: 1 !important;
+}
+
         /*-- shop part --*/
         
      /* --main content-- */
@@ -632,6 +689,426 @@ footer{
     cursor: pointer;
 }
 
+   /* == take the order == */
+
+   #order-container{               /* the container for all the 4 delivery windows */
+    display: none;
+    width: 73%;
+    margin: -50% auto 0% 13.4%;
+    border: 0.5px solid grey;
+    height: 620px;
+    position: relative;
+   }
+   .order-div{                   /* common style for all the 4 delivery windows */
+       position: absolute;
+       top: 13.5%;
+       left: 25%;
+       min-height: 85%; 
+       height: 535px;
+       width: 75%;
+   }
+   #delivery{                   /* delivery window */
+       z-index: 10;
+       display: block;
+   }
+ 
+      #items-in-order{               /* div with all items placed in cart */
+      height: 620px;
+      width: 25%;
+      overflow-y:auto;
+      } 
+
+     #delivery-progress{            /* progress bar for delivery container div */
+         height: 80px;
+         width: 73%;
+         position: absolute;
+         display: flex;
+         top: 0;
+         z-index: 100;
+         right: 0%;       
+     }
+     .flex-items-progressBar{             /* the divs containg the bubble, step name and arrow */
+         height: 100%;
+         width: 20%; 
+         padding-right: 25px;
+          display: flex; 
+          justify-content: space-between;
+          align-items: center;
+          opacity: 0.5;
+     }
+   
+    .bubble{              /* the white bubble */
+         border-radius: 50%;
+         width: 37px;
+         height: 37px;
+         background-color: white;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+     }
+         .bubble p{        /* number inside the bubble */
+           color: black;
+           font-size: 22px;
+         }
+         .bubble img{
+             margin-left: -26%;
+             width: 47px;
+             height: 59px;
+             border-radius: 50%;
+             display: none;
+         }
+          .bubble + p{     /* delivery step */
+             color:white;
+             font-size: 18px;
+          }
+     #arrow{            /* arrow to right in delivery progress div */
+         width: 18px;
+         height: 32px;
+     }
+      #delivery button{
+          width: 20%;
+          position: absolute;
+          top: 65%;
+          left: -4.5%;
+          font-size: 17px;
+          font-family: sans-serif;
+          cursor: pointer!important;
+      } 
+      #delivery button:last-child{
+          left: 64%;
+      }
+      #Pickup-map{
+          width: 500px;
+          height: 300px;
+          margin-top: 5%;
+          margin-left: 14%;
+          z-index: 0;
+      }
+      #delivery p{
+          font-size: 18px;
+          font-family: sans-serif;
+          margin-left: 5%;
+      }
+      #pickupAdress{
+          width: 40%;
+          height: 70px;
+          position: absolute;
+          z-index: 100;
+          top: 17.7%;
+          left: 14%;
+          background-color: black;
+      } 
+      #pickupAdress p{
+          margin: 0;
+          padding: 0;
+          padding-top: 10px;
+      }
+      #pickupAdress p:first-child{
+          color: black;
+          background-color: white;
+          font-size: 14px;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          padding-bottom: 5px;
+      }
+
+   #contact{                    /* contact window */
+      display: none;
+   }
+   fieldset{                     /* fieldsets with input */
+       float: left;
+       width: 35%;
+       margin-bottom: 3%;
+       padding: 10px;
+       line-height: .7em;
+       position: relative;
+   }
+   fieldset:nth-child(n+1){
+       margin-right: 5%;
+       margin-left: 5%;
+   }
+   fieldset input{
+       height: 20px;
+       width: 200px;
+       background-color: black;
+       border: 0;
+       color: white;
+   }
+   fieldset input:focus{
+       color: white;
+       outline: none;
+   }
+  
+   #contact button{                  /* the two buttons  */
+          width: 20%;
+          position: absolute;
+          top: 65%;
+          left: -4.5%;
+          cursor: pointer!important;
+          font-size: 17px;
+          font-family: sans-serif;
+   }
+   #contact button:last-child{
+       left: 64%;
+   }
+   #contact p{
+        font-size: 18px;
+          font-family: sans-serif;
+          margin: 3% 0 8% 5%;
+   }
+   .good{
+       display: none;
+       position: absolute;
+       right: 4%;
+       top: 35%;
+       width: 20px;
+       height: 20px;
+   }
+   .bad{
+       display: none;
+       position: absolute;
+       right: 4%;
+       top: 20%;
+       width: 35px;
+       height: 35px; 
+   }
+   #warning{                        /* warning if user input invalid*/
+       font-size: 14px !important;
+       color: darkred;
+       padding-left: 51%;
+       clear: both;
+       display: none;
+   } 
+
+   #payment{                   /* payment window */
+   display: none;
+   }
+      #payment p{
+          font-size: 17px;
+          font-family: sans-serif;
+          margin-left: 3%;
+      }
+      #payment p:first-child{
+          margin-top: 5%;
+          font-size: 20px;
+      }
+      #payment p:nth-child(2){
+          margin: 5% 0 9% 6%;
+          opacity: .5;
+      }
+      #finalTotal{
+          color:#BF9515;
+      }
+      #payment div{
+          display: flex;
+          width: 85%;
+          border-top: 1px solid grey;
+          border-bottom: 1px solid grey;
+          margin-left: 7%;
+      }
+      #payment div p:last-child{
+         margin-left: 60%;
+         margin-top: 4%;
+         color: #BF9515;
+      }
+      #payment div img{
+          height: 60px;
+          width: 60px;
+          display: block;
+          margin-top: 1%;
+          margin-left: 7%;
+      }
+      #payment div p:first-child{
+           margin-top: 3.5%; 
+      }
+      #payment button{                  /* the two buttons  */
+          width: 20%;
+          position: absolute;
+          top: 65%;
+          left: -4.5%;
+          cursor: pointer!important;
+          font-size: 17px;
+          font-family: sans-serif;
+   }
+     #payment button:last-child{
+       left: 64%;
+   }
+
+
+   #confirmation{               /* confirmation window */
+      display: none;
+   }
+     
+      #personal-info{           /* info section div */
+          position: relative;
+          height: 410px;
+          width: 60%;
+          margin-top: 1%;
+          margin-left: 17%;
+          border: 1px solid grey;
+      }
+      #confirmation button{                  /* the two buttons  */
+          width: 20%;
+          position: absolute;
+          top: 65%;
+          left: -4.5%;
+          cursor: pointer!important;
+          font-size: 17px;
+          font-family: sans-serif;
+   }
+     #confirmation button:last-child{
+       left: 64%;
+   }
+     #personal-info img:first-child{    /* user icon*/
+         width: 50px;
+         height: 50px;
+         margin-top: 12%;
+         margin-left: 15%;
+     }
+     #user-name{                /* name of the user*/
+        position: absolute;
+        top: 12%;
+        left: 30%;
+        font-size: 19px;
+        font-family: sans-serif; 
+     }
+     #personal-info img:nth-child(3){   /* phone icon */
+         width: 30px;
+         height: 30px;
+         margin-top: 30%;
+         margin-left: -20%;
+         position: absolute;
+     }
+     #phone-number{
+         position: absolute;
+         top: 30.5%;
+         left: 16%;
+     }
+     #personal-info img:nth-child(5){  /* location icon*/
+         width: 30px;
+         height: 30px;
+         position: absolute;
+         margin-top: 42%;
+         margin-left: -20%;
+     }
+     #personal-info p:nth-child(6){        /*location text*/
+         position: absolute;
+         margin-top: 19%;
+         margin-left: 16%;
+         font-size: 15px;
+         font-family: Verdana, Geneva, Tahoma, sans-serif;
+     }
+     #personal-info img:nth-child(7){    /*clock icon*/
+         width: 30px;
+         height: 30px;
+         position: absolute;
+         margin-top: 54%;
+         margin-left: -20%;
+         opacity: .4;
+     }
+      #personal-info p:nth-child(8){   /*clock text*/
+         position: absolute;
+         margin-top: 31%;
+         margin-left: 16%;
+      }      
+       #personal-info img:nth-child(9){  /*mail icon*/
+         position: absolute;
+         width: 30px;
+         height: 30px;
+         margin-top: 66%;
+         margin-left: -20%;
+         opacity: .6;
+       } 
+       #personal-info p:nth-child(10){    /* mail text*/
+         position: absolute;
+         margin-top: 43%;
+         margin-left: 16%;
+       } 
+       #personal-info p:nth-child(11){   /*pay with text */
+         position: absolute;
+         padding-top: 15px;
+         width: 85%;
+         border-top: 1px solid grey;
+         margin-top: 52%;
+         margin-left: 7%;
+       }
+       #personal-info p:nth-child(12){    /*Cash*/
+          position: absolute;
+          top: 89%;
+          left: 7%;
+       }   
+       #personal-info span:nth-child(13){   /*amount*/
+          position: absolute;
+          margin-top: 86.5%;
+          margin-left: 55%;
+       } 
+      #personal-info span:nth-child(14){   /*lei*/
+            position: absolute;
+          margin-top: 86.5%;
+          margin-left: 59%;
+      }
+
+
+     /* == items from order in purchase window ==*/
+
+   #items-in-order{            /* div with all ordered items */
+       overflow-y: auto;
+       overflow-x: hidden;
+       width: 25%;
+       height: 90%;
+       border-right: .5px solid grey;
+   }
+   #items-in-order div:first-child p{       /* "my order" text */
+      padding-left: 20%;
+      font-size: 19px;
+      font-family: 'Lobster', cursive;
+   }
+   #items-in-order div:first-child{
+       border-bottom: 0.5px solid grey;
+   }
+  .added-items{                      /* div with each item added */
+      padding-left: 5%;
+      width: 88%;
+      border-bottom: 0.5px solid grey;
+      margin: 0 auto 0 auto;
+  }
+  .added-items p{
+      margin-top: 8%;
+  }
+  .finalPrice{
+      padding-left: 5%;
+      font-size: 14px;
+       width: 88%;
+      max-width: 88%;
+  }
+  .finalSpecial{
+      font-size: 14px;
+  }
+  
+
+   #totalPrice{                  /* price at the bottom of window */
+       width: 22%;
+       font-size: 18px;
+       color: #BF9515;
+       border-top: 0.5px solid #BF9515;
+       padding-left: 3%;
+   }
+
+   #finalSpecialRequest{      /* the last great special request */
+      margin-top: 20px;
+      padding-left: 5%;
+      padding-right: 5%;
+      width: 88%;
+      max-width: 88%;
+      border-bottom: 0.5px solid grey;
+      margin: 0 auto 0 auto;
+      text-align: left;
+   }
+   .yellow{
+       color: #BF9515;
+   }
+
+
+
 
     /* --media querries-- */   
 
@@ -693,6 +1170,8 @@ select{
         }
    #shopping{
        width: 30%;
+       padding: 0;
+       margin: 0;
        height: 1950px;
        border-left:0.5px solid grey;
    }
