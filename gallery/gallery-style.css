@@ -1,0 +1,443 @@
+body{
+ margin: 0;
+  padding: 0;
+  background-color: black;  
+  color:white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size:1em;
+  box-sizing: border-box;
+}
+
+ /* --beggining of logo design-- */
+
+.outer{
+     margin:4% auto 0% auto;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    height:5.27%;
+   max-width:20.25%;
+}
+.inner{
+   border-top: 1px solid white;
+      border-bottom: 1px solid white;
+      height:90%;
+      margin:3% auto;
+      width:90%;
+      text-align: center;
+}
+.inner p{
+     font-size:3em;
+    margin:2px auto;
+    font-family: copperplate;
+}
+#big{
+      margin:0 auto;
+    padding-top: .5%;
+    width: 22%;
+    text-align: center;
+    font-size: 16px;
+    font-family: arial;
+}
+#min-only{
+     font-size:3.5em;
+    margin:2px auto;
+    font-family: copperplate;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+ /* --end of logo design-- */
+
+  /* --beggining of nav design-- */
+
+ul{
+   margin: 0 auto;
+    margin-top:3%;
+    list-style-type: none;
+    width: 90%;
+    text-align: center;
+    overflow: hidden;
+    display: block;
+    -webkit-transition: max-height 0.4s ease-in-out;
+    transition: max-height 0.4s ease-in-out;
+}
+li{
+     display: inline-block;
+    margin-bottom: 5%;
+    line-height: 2.5em;
+    font-size: 16px;
+    width: 10.66%;
+  text-align: center;
+    font-family: forum;
+}
+.menu{
+    text-decoration: none;
+    color:white;
+    font-family: forum;
+}
+#sixth{color: #BF9515;}
+a:not(.menu){
+    text-decoration: none;
+    color:#BF9515;   
+}
+.menu:hover{
+    color:#cccc00;
+}
+
+   /* --end of nav design-- */
+
+   main{
+       width: 73%;
+       height: 740px;
+    margin:0.5% auto 3% auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: space-between;
+   }
+.photo{
+    background-size: 250px 180px;
+    background-repeat: no-repeat;
+    min-height: 180px;
+    max-height: 180px;
+    width: 24.5%; 
+    cursor: pointer;   
+}
+#unu{
+    background-image: url("drinks.jpg");
+}
+
+#doi{
+  background-image: url("sofa.jpg");  
+}
+#trei{
+    background-image: url("sticle.jpg"); 
+}
+#patru{
+    background-image: url("faces.jpg"); 
+}
+#cinci{
+    background-image: url("tables.jpg"); 
+}
+#sase{
+  background-image: url("ham.jpg"); 
+}
+#sapte{
+    background-image: url("front.jpg"); 
+}
+#opt{
+    background-image: url("friends.jpg"); 
+}
+#noua{
+    background-image: url("shots.jpg"); 
+}
+#zece{
+    background-image: url("malts.jpg"); 
+}
+#unspe{
+    background-image: url("lux.jpg"); 
+}
+#doispe{
+    background-image: url("foods.jpg"); 
+}
+#treispe{
+    background-image: url("eggs.jpg"); 
+}
+#paispe{
+    background-image: url("rose.jpg"); 
+}
+#cinspe{
+    background-image: url("cube.jpg"); 
+}
+#saispe{
+    background-image: url("wine.jpg"); 
+}
+
+        /* --the footer-- */
+
+footer{
+  clear:both;
+     margin: 1% auto 0 auto;
+     border-top: 1px solid white;
+     width: 73%;
+ }
+ .open, .adress{
+      margin-top:2.5%;
+     width: 25%;
+     float: left;
+     margin-right: 3%;
+     line-height: 0.5em;
+ }
+ .location{
+      margin-top:2%;
+     width: 33%;
+     float: left;
+ }
+  .final{
+     color:#BF9515;
+     margin-bottom:5%;
+ }
+ #foot{
+     margin-top: 0;
+ }
+
+      /* --the footer-- */
+
+      /*--   side menu       --*/
+         .open-menu{
+          width: 75%;
+          height: 70px;
+          box-sizing: border-box;
+           padding: 10px 15px;
+          margin-left: 11%;
+          margin-top: 3%;
+          display: none;
+      }
+    #hamb-menu{
+    float: right;
+    clear: both;
+    height: auto; 
+    width: auto; 
+    max-width: 6%; 
+    max-height: 75%;
+    margin-top: -7%;
+    cursor: pointer;
+     margin-right: 8%;
+    }
+    .open-menu p{
+    float: left;
+    text-align: left;
+    font-size: 18px;
+    line-height: 90%;
+    padding-left:15%;
+    font-size: 1.3em;
+}
+
+   /* --end of side menu-- */
+
+
+    /* == overlay == */
+.grey{
+    opacity: 0.5;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    display: none;
+}
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    display: none;
+}    
+.content{
+    background-size: 600px 450px;
+    background-repeat: no-repeat; 
+    height: 500px;
+    width: 65%;
+    margin: 75px auto 0 27%;
+     -webkit-transition: opacity 1s ease;
+    transition: opacity 1s ease;
+}
+#close{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    cursor: pointer;
+}
+#back{
+    position: absolute;
+    top: 45%;
+    left: 7%;
+    cursor: pointer;
+}
+#forward{
+    position: absolute;
+    top: 45%;
+    right: 7%;
+    cursor: pointer;
+}
+.fade{
+    opacity: 0;
+}
+
+
+
+
+    /* == media == */
+
+@media screen and (max-width:1060px){
+        .content{
+            margin-left: 23%;
+        }
+}
+
+@media screen and (max-width:980px){
+     .content{
+         margin-left: 20%;
+     }
+}
+@media screen and (max-width:920px){
+     .content{
+         margin-left: 19%;
+     }
+}
+
+  @media screen and (max-width:850px){
+     
+       .open-menu{
+       display: block;
+   }
+   ul{
+       max-height: 0;
+
+   }
+   li{
+       float: none;
+       width: 100%;
+       text-align: left;
+       margin-bottom: 0;
+       cursor: pointer;
+   }
+   ul li a{
+       padding: 10px;
+   }
+   li:hover{
+       background-color:#708090;
+   }
+   .open-on-click{
+    max-height: 20em;
+}
+#hamb-menu{
+    width: 25px;
+    height: 20px;
+}
+.open, .adress{
+    line-height: 1.1em;
+}
+#foot{
+    width: 250px;
+    height: 100px;
+}
+
+  }  
+
+  @media screen and (max-width:780px){
+       .content{
+           min-height: 140px;
+           min-width: 140px;
+           width: 360px;
+           height: 320px;
+           margin-top: 19%;
+           margin-left: 29%;
+       }
+  }
+
+  @media screen and (max-width:700px){
+  
+    .photo{
+        width: 32.9%;
+    }
+    #hamb-menu{
+        margin-top: -40px;
+    }
+    main{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-content: space-between;
+        height: 1100px;
+    }
+  .content{
+      margin-left: 24%;
+  }
+
+  }
+
+  @media screen and (max-width:630px){
+     .content{
+          margin-left: 22%;
+     }
+  }
+
+  @media screen and (max-width:590px){
+      #foot{
+          width: 180px;
+      }
+      .outer{
+          display: none;
+      }
+      #min-only{
+          display: block;
+          font-size: 36px;
+      }
+      .photo{
+          width: 49.5%;
+      }
+      main{
+          height: 1470px;
+      }
+       .content{
+          margin-left: 28%;
+          margin-top: 35%;
+          width: 250px;
+          height: 200px;
+     }
+  }
+
+  @media screen and (max-width:500px){
+
+   #hamb-menu{
+       max-width: 25px!important;
+       max-height: 20px!important;
+   }
+   .photo{
+       width: 100%;
+   }
+   main{
+       height: 2950px;
+       margin-left: 22%;
+   }
+
+  }
+
+ @media screen and (max-width:470px){
+     .content{
+         margin-left: 22%;
+         margin-top: 50%;
+     }
+ }
+
+   @media screen and (max-width:430px){
+       #foot{
+           width: 150px;
+       }
+   }
+
+    @media screen and (max-width:400px){
+
+       main{
+           margin-left: 15%;
+       }
+       .open, .adress, .location{
+           float: none;
+           width: 100%;
+       }
+    }
+    @media screen and (max-width:350px){
+
+      main{
+          margin-left: 12%;
+      }
+      #foot{
+          width: 100px;
+      }
+    }
