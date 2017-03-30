@@ -18,8 +18,8 @@
       <p id="big"> The best night in town</p>
     <nav>
         <ul>
-            <li><a class="menu" href="..\index.html">HOME </a></li>
-              <li><a href="#" class="menu" id="second">MENU </a></li>
+            <li><a class="menu" href="..\home\index.html">HOME </a></li>
+              <li><a href="menu.html" class="menu" id="first">MENU </a></li>
                <li><a href="..\order\order.html" class="menu">ORDER LINE </a></li>
                  <li><a href="..\events\events.html" class="menu">EVENTS </a></li>
                    <li><a href="..\about us\about us.html" class="menu">ABOUT US </a></li>
@@ -27,194 +27,193 @@
         </ul> 
          <div class="open-menu">
              <p>MENU </p>
-             <img id="hamb-menu" src="hamb.png"/>
+             <img id="hamb-menu" src="images\menu.png"/>
             </div>     
     </nav>      
        <div id="choice">
-        <a id="link1"  onclick="show()">FOOD </a>
-        <a id="link2"  onclick="show()">DRINKS</a>
-          <p id="get">Get people excited about your menu and your food. Give your menu a brief description </p>
+        <a id="link1" class="menuChoice" data-target="food">FOOD</a>
+        <a id="link2" class="menuChoice" data-target="drinks">DRINKS</a>
        </div> 
 </header>
-     <div id="first-main">
+     <div id="first-main" data-menu="food" class="contents">
         <article id="articol1">    
         <h1 id="center1">APPETIZERS </h1>
-        <p id="center2">This is a section of your menu. Give your section a brief description </p>    
+        <p id="center2">As the word describes it: before the real thing </p>    
      
 
             <div class="appet" id="margins">
-            <img src="download.jpg"/>
-            <p>NOT A SOUP </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\download.jpg"/>
+            <p>Vegetable Soup </p>
+            <p>Soup and Vegetables. Togheter </p>
+            <p>8 Lei </p>
          </div>   
            <div class="appet" id="margins">
-            <img src="images.jpg"/>
-            <p>POTATOS </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\images.jpg"/>
+            <p>Burger </p>
+            <p>Burgers and French Fries. A classic </p>
+            <p>12 Lei </p>
          </div>  
            <div class="appet">
-            <img src="balls.jpg"/>
-            <p>BALLS, BALLS  </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\balls.jpg"/>
+            <p>Meatballs</p>
+            <p>Plenty of them </p>
+            <p>7 Lei </p>
          </div>  
        
            <div class="appet" id="margins" >
-            <img src="mici.jpg"/>
-            <p>DACAT MICI </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\mici.jpg"/>
+            <p>Chicken Wings</p>
+            <p>Feel how the hunger flies away </p>
+            <p>5 Lei </p>
          </div>  
            <div class="appet" id="margins">
-            <img src="sausage.jpg"/>
-            <p>CARNATZOS  </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\sausage.jpg"/>
+            <p>Sausages </p>
+            <p>And not a party </p>
+            <p>9 Lei </p>
          </div>  
            <div class="appet" >
-            <img src="shaormica.jpg"/>
-            <p>HEHE </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\shaormica.jpg"/>
+            <p>Shawarma</p>
+            <p>We all know it </p>
+            <p>10 Lei </p>
          </div>   
          <p id="clear"> </p>
         </article>
 
         <div id="articol2">
             <h1 id="center3"> MAINS </h1>
-            <p id="center2">This is a section of your menu. Give your section a brief description </p>
+            <p id="center2">If you're serious about it </p>
              <div class="appet" id="margins">
-            <img src="pasta.jpg"/>
-            <p>A FINE CHOICE </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\pasta.jpg"/>
+            <p>Pasta</p>
+            <p>Old school but still around</p>
+            <p>12 Lei </p>
          </div>  
           <div class="appet" id="margins">
-            <img src="salad.jpg"/>
-            <p>FOR A DELICATE BELLY </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\salad.jpg"/>
+            <p>Pork Steak</p>
+            <p>Recipe: Pork + and other stuff</p>
+            <p>14 Lei </p>
          </div>  
           <div class="appet">
-            <img src="abc.jpg"/>
-            <p>HEALTHY FANATICS </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\abc.jpg"/>
+            <p>Beef Steak </p>
+            <p>Simply as that</p>
+            <p>18 Lei </p>
          </div>  
           <div class="appet" id="margins" >
-            <img src="mest.jpg"/>
-            <p>A..FOOD TYPE </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\mest.jpg"/>
+            <p>Rice </p>
+            <p>Endless flow of calories</p>
+            <p>7 Lei </p>
          </div>  
           <div class="appet" id="margins">
-            <img src="meat.jpg"/>
-            <p>FOR TRUE HUNTERS </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\meat.jpg"/>
+            <p>Deer Steak </p>
+            <p>Straight from the forest </p>
+            <p>27 Lei </p>
          </div> 
          <div class="appet">
-            <img src="fish.jpg"/>
-            <p>BELIEVER'S CORNER' </p>
-            <p>This is an item on your menu. Give your item a brief description </p>
-            <p>$7 </p>
+            <img src="images\fish.jpg"/>
+            <p>Fish & Lemon </p>
+            <p>Ideal for a sunny afternoon</p>
+            <p>17 Lei </p>
          </div> 
           <p id="clear"> </p>
         </div> 
     </div> 
-<div id="second-main">
+<div id="second-main" data-menu="drinks" class="contents">
     <p id="center1">BEER </p>
-    <P id="center2">This is a section of your menu. Give your section a brief description </P>
+    <P id="center2">The real 'real thing' </P>
 
    <article>
        <div class="appet" id="margins">
-        <img src="darkbeer.jpg"/>
-        <p>BUDWEISER</p>
-        <P>This is an item on your menu. Give your item a brief description </P> 
-        <p>6$ </p> 
+        <img src="images\darkbeer.jpg"/>
+        <p>Drakkar</p>
+        <P>Beef from the Gold Age </P> 
+        <p>9 Lei </p> 
        </div> 
        <div class="appet" id="margins">
-          <img src="impala.jpg"/>
+          <img src="images\impala.jpg"/>
           <p>IMPALA </p>
-          <p>This is an item on your menu. Give your item a brief description </p>
-          <p>5$ </p>
+          <p>Beer from Africa</p>
+          <p>8 Lei </p>
        </div>
        <div class="appet">
-          <img src="rascal.jpg"/>
-          <p>COORS LIGHT </p>
-          <p>This is an item on your menu. Give your item a brief description</p>
-          <p>5$ </p>
+          <img src="images\rascal.jpg"/>
+          <p>Rascal </p>
+          <p>A truly authentic Belgian beer</p>
+          <p>11 Lei </p>
        </div>   
        <p id="clear"> </p> 
    </article>
        <p id="center1">WHITE WINE </p>
-       <p id="center2">This is a section of your menu. Give your section a brief description </p>
+       <p id="center2">When things get 'classy'</p>
    <article>
        <div class="appet" id="margins">
-        <img src="wine1.jpg"/>
-        <p>SAUVIGNON BLANC </p>
-        <p>This is an item on your menu. Give your item a brief description</p>
-        <p>12$ </p>
+        <img src="images\wine1.jpg"/>
+        <p>Sauvignon Blanc </p>
+        <p>As good as it can get</p>
+        <p>45 Lei </p>
        </div>
        <div class="appet" id="margins">
-        <img src="wine2.jpg"/>
-        <p>SEMILLON </p>
-        <p>This is an item on your menu. Give your item a brief description</p>
-        <p>15$ </p>
+        <img src="images\wine2.jpg"/>
+        <p>Semillon </p>
+        <p>Dry and sweet</p>
+        <p>55 Lei </p>
        </div>
        <div class="appet">
-         <img src="wine3.jpg"/>
-         <p>CHARDONNAY </p>
-         <p>This is an item on your menu. Give your item a brief description </p>
-         <p>22$ </p>
+         <img src="images\wine3.jpg"/>
+         <p>Chardonnay</p>
+         <p>The most popular white wine on earth  </p>
+         <p>32 Lei </p>
        </div>
          <p id="clear"> </p>
             </article> 
      <p id="center1">RED WINE </p>
-       <p id="center2">This is a section of your menu. Give your section a brief description </p>
+       <p id="center2"> The other side of 'classy' </p>
    <article>    
        <div class="appet" id="margins">
-        <img src="redwine2.jpg"/>
-        <p>MERLOT </p>
-        <p>This is an item on your menu. Give your item a brief description</p>
-        <p>21$ </p>
+        <img src="images\redwine2.jpg"/>
+        <p>Merlot </p>
+        <p> Soft, ripe and elegant</p>
+        <p>40 Lei </p>
        </div>
        <div class="appet" id="margins">
-        <img src="redwine3.jpg"/>
-        <p>CABARET-SAUVIGNON</p>
-        <p>This is an item on your menu. Give your item a brief description</p>
-        <p>19$ </p>
+        <img src="images\redwine3.jpg"/>
+        <p>Cabaret-Sauvignon</p>
+        <p> Dark color, full body</p>
+        <p>39 Lei </p>
        </div>
        <div class="appet">
-         <img src="redwine5.jpg"/>
-         <p>PINOT NOIR </p>
-         <p>This is an item on your menu. Give your item a brief description </p>
-         <p>22$ </p>
+         <img src="images\redwine5.jpg"/>
+         <p>Pinot Noir </p>
+         <p>A rarity </p>
+         <p>79 Lei </p>
        </div>
        <p id="clear"> </p>
     </article>
        <p id="center1">COCKTAILS </p>
-       <p id="center2">This is a section of your menu. Give your section a brief description </p>
+       <p id="center2">High Life </p>
    <article>
       <div class="appet" id="margins">
-        <img src="cocktail1.jpg"/>
-        <p>CLASSIC COSMO </p>
-        <p>This is an item on your menu. Give your item a brief description</p>
-        <p>21$ </p>
+        <img src="images\cocktail1.jpg"/>
+        <p>Classic Cosmo </p>
+        <p> Vodka, Triple sec and Cranberry juice</p>
+        <p>21 Lei </p>
        </div>
        <div class="appet" id="margins">
-        <img src="cocktail2.jpg"/>
-        <p>MANHATANN</p>
-        <p>This is an item on your menu. Give your item a brief description</p>
-        <p>19$ </p>
+        <img src="images\cocktail2.jpg"/>
+        <p>Manhatann</p>
+        <p> Whiskey, Sweet vermouth, and Bitters</p>
+        <p>19 Lei </p>
        </div>
        <div class="appet">
-         <img src="cocktail3.jpg"/>
-         <p>MARTINI </p>
-         <p>This is an item on your menu. Give your item a brief description </p>
-         <p>22$ </p>
+         <img src="images\cocktail3.jpg"/>
+         <p>Martini </p>
+         <p> Gin, Vermouth, and garnished with a lemon </p>
+         <p>14 Lei </p>
       </div>
       <p id="clear"></p>
    </article>     
@@ -232,15 +231,13 @@
     
     <div class="adress">
         <p class="final">ADDRESS</p>
-        <p>500 Terry Francois Street</p>
-        <p>San Francisco, CA  94158</p>
-        <p> Info@mysite.com</p>
-        <p>T  /  123-456-7890</p>
-        <p> F  /  123-456-7890</p>
+       <p>5 Alexandru Vlahuta Street</p>
+        <p>Clu-Napoca, Cluj </p>
+        <p>123-456-7890-999</p>
     </div>  
     <div class="location">
         <p class="final">FIND US </p>
-       <a href="https://www.google.ro/maps/@46.7703841,23.5619228,17z?hl=en" target="_blank"><img id="foot" src="adress.jpg"/></a> 
+       <a href="https://www.google.ro/maps/@46.7703841,23.5619228,17z?hl=en" target="_blank"><img id="foot" src="images\adress.jpg"/></a> 
     </div>  
    </footer>
 

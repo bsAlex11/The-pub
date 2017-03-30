@@ -1,0 +1,273 @@
+ /* --logo design-- */
+
+.outer{
+    margin:4% auto 0% auto;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    height:5.27%;
+   max-width:20.25%;
+
+}
+.inner{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    height:90%;
+    margin:3% auto;
+    width:90%;
+    text-align: center;
+}
+.inner p{
+    font-size:3em;
+    margin:2px auto;
+    font-family: copperplate;
+}
+#min-only{
+     font-size:3.5em;
+    margin:2px auto;
+    font-family: copperplate;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+#big{
+    margin:0 auto;
+    padding-top: .5%;
+    width: 22%;
+    text-align: center;
+    font-size: 16px;
+    font-family: arial;
+}
+
+       /* --the nav bar-- */
+
+ul{
+    margin: 0 auto;
+    margin-top:3%;
+    list-style-type: none;
+    width: 90%;
+    text-align: center;
+    overflow: hidden;
+    display: block;
+    -webkit-transition: max-height 0.4s ease-in-out;
+    transition: max-height 0.4s ease-in-out;
+}
+li{
+    display: inline-block;
+    margin-bottom: 5%;
+    line-height: 2.5em;
+    font-size: 16px;
+    width: 10.66%;
+  text-align: center;
+}
+.menu{
+    text-decoration: none;
+    color:white;
+    font-family: forum;
+}
+ #first{ color:#BF9515; }
+ a:not(.menu){
+    text-decoration: none;
+    color:#BF9515;   
+}
+.menu:hover{
+    color:#cccc00;
+}
+ 
+
+
+     footer{
+     clear:both;
+     margin: 1% auto 0 auto;
+     border-top: 1px solid white;
+     width: 73%;
+ }
+  @-moz-document url-prefix() {
+       footer{
+           //margin: 300px auto 0 auto; 
+       }
+  }
+ .open, .adress{
+     margin-top:2.5%;
+     width: 25%;
+     float: left;
+     margin-right: 3%;
+     line-height: 0.5em;
+  
+ }
+ .location{
+     margin-top:2%;
+     width: 33%;
+     float: left;
+ }
+ .final{
+     color:#BF9515;
+     margin-bottom:5%;
+ }
+ #foot{
+     margin-top: 0;
+ }
+
+ 
+
+  /*--   side menu       --*/
+      .open-menu{
+          width: 75%;
+          height: 70px;
+          box-sizing: border-box;
+           padding: 10px 15px;
+          margin-left: 11%;
+          margin-top: 3%;
+          display: none;
+      }
+    #hamb-menu{
+         width: 45px;
+         height: 45px;
+        float: right;
+        clear: right;
+         margin-top: 2px;
+         cursor: pointer;
+         margin-right: 8%;
+    }
+    .open-menu p{
+    float: left;
+    text-align: left;
+    font-size: 18px;
+    line-height: 90%;
+    padding-left:15%;
+    font-size: 1.3em;
+}
+
+          /*== media queries ==*/
+
+   @media screen and (max-width:1100px){
+        .outer{
+         display: none;
+        }     
+        #min-only{
+            display: block;
+            font-size: 2.5em;
+            margin-top: 5%;
+        }
+    }
+
+     @media screen and (max-width:1049px) {
+
+      .location a img{
+      width: 100%;
+  }
+     }
+
+     @media screen and (max-width:985px){
+ 
+         nav ul li {
+             width: 12%;
+             padding:0px;
+         }
+     }
+
+      @media screen and (max-width:964px){
+
+      .adress p:nth-child(2){
+          width: 85%;
+          line-height: 15px;
+      }
+   } 
+
+    
+    @media screen and (max-width:894px) {
+          
+ main{
+       margin-top: 2%;
+       margin-bottom: 2%;
+   }
+
+       article{
+           width: 100%;
+           float: none;
+       }
+   .open-menu{
+       display: block;
+   }
+  
+   ul{
+       max-height: 0;
+       width: 50%;
+       margin: 5% auto 2% auto;
+   }
+  nav ul li{
+       float: none;
+       width: 80%;
+       padding: 0;
+       text-align: left;
+       margin-bottom: 0;
+       cursor: pointer;
+       display: block;
+       margin-left: 0px;
+   }
+   li:hover{
+       background-color:#708090;
+   }
+   li a{
+       height: 100%;
+       width: 100%;
+       padding-left: 5px;
+       display: block;
+   }
+   .open-on-click{
+    max-height: 20em;
+}
+       .image{
+           display: none;
+       }
+      
+     .open, .adress{
+         float: none;
+         width: 50%;
+         box-sizing: border-box;    
+     }     
+     .location{
+         float: none;
+         width: 45%; 
+     }
+    }
+
+     @media screen and (max-width:781px) {
+
+         #hamb-menu{
+            width: 40px;
+            height: 40px;
+            margin-top: 5px;
+        }
+     }
+
+      @media screen and (max-width:540px) {
+            
+            #hamb-menu{
+            width: 35px;
+            height: 35px;
+            margin-top: 10px;
+        }
+             .location{
+                 width: 55%;
+             }
+      }
+
+      @media screen and (max-width:370px) {
+
+            #hamb-menu{
+                height: 30px;
+                width: 30px;
+                margin-top: 15px;
+            }
+            #big{
+                width: 100%;
+            }
+      }
+
+       @media screen and (max-width:349px) {
+
+            .open, .adress{
+                line-height: 1em;
+            }
+       }

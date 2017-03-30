@@ -1,29 +1,40 @@
-function show () 
-{var element1 = document.getElementById("first-main");
- var element2 = document.getElementById("second-main");
 
-     var styleFood = window.getComputedStyle(element1);     // lista cu proprietati de style
-     var typeFood = styleFood.getPropertyValue("display");
-     var styleBeer = window.getComputedStyle(element2);
-     var typeBeer = styleBeer.getPropertyValue("display");
+  /*== cache ==*/
 
-   if (typeFood == "none")
-     {
-         document.getElementById("first-main").style.display = "block";
-         document.getElementById("second-main").style.display = "none";
-         document.getElementById("link1").style.color = "white";
-         document.getElementById("link2").style.color = "grey";
+   var buttons = document.getElementsByClassName("menuChoice"),
+       content = document.getElementsByClassName("contents");
+
+  /*== show section on click ==*/
+
+     for (var i = 0; i < buttons.length; i++)
+         buttons[i].addEventListener("click",show);
+
+     function show(event){
+       
+        var data = this.getAttribute("data-target");
+        for(var j = 0; j < buttons.length; j++)
+            {
+                if (buttons[j] === this)
+                  buttons[j].style.color = "white";
+                else 
+                   buttons[j].style.color = "grey";  
+            }
+            
+        for(var i = 0; i < content.length; i++)
+          content[i].style.display = "none"; 
+
+        for(var i = 0; i < content.length; i++)
+          {   
+             var id = content[i].getAttribute("data-menu");
+         
+              if (data == id)
+                {content[i].style.display = "block";
+                   return;           
+                }
      }
-   else 
-   {
-      document.getElementById("first-main").style.display = "none";
-      document.getElementById("second-main").style.display = "block";
-      document.getElementById("link1").style.color = "grey";
-      document.getElementById("link2").style.color = "white";    
-        
-  }  
+     }        
 
-}
+      /*== display menu button ==*/
 
 var buton = document.getElementById("hamb-menu");
 
