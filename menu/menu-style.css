@@ -1,6 +1,89 @@
  //@import url("common-style.css");
 
-   /* common style */
+  
+
+   /* --main content-- */
+
+ #first-main{
+     width: 72%;
+      margin:5% auto 0% auto;
+     display: block;
+ }
+
+ article{
+     width: 100%;
+     margin: 0 auto 0 auto;
+ 
+ }
+#center1{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 150%;
+    font-family: sans-serif;
+    color:rgba(191, 149, 21, 1);
+    text-align: center;
+}
+#center2 {
+    width: 50%;
+    margin: -2% auto 7% auto;
+    color: grey;
+    text-align: center;
+}
+
+.appet{
+    width: 25%;
+    float: left;
+    margin-left: 4%;
+    margin-bottom: 2%;
+   
+}
+ .appet > img{
+    width: 95%;
+    height: 200px;
+}
+#margins{
+   margin-right: 5%;
+}
+.appet p:nth-child(2){
+    width: 50%;
+    margin:10% auto 0 auto;
+    text-align: center;
+    font-size: 1.1em;
+    padding-bottom: 5%;
+    border-bottom: 2px solid white;
+}
+.appet p:nth-child(3){
+    text-align: center;
+}
+.appet p:nth-child(4)
+{
+    text-align: center; 
+}
+#center3{
+    text-align: center;
+   margin-bottom: 4%;
+    font-size: 150%;
+    font-family: sans-serif;
+    color:rgba(191, 149, 21, 1);
+}
+
+#clear{
+    clear: both;
+}
+
+#second-main{
+    display: none;
+     width: 72%;
+      margin:5% auto 0% auto;   
+}
+
+#link1:hover,#link2:hover{ cursor: pointer};
+
+   #fake{
+       display: none;
+   }
+ /* common style */
 
    /* --logo design-- */
 
@@ -304,88 +387,6 @@ body{
 #choice p{ font-style: italic;
  font-size: 14.5px;}
 
-
-   /* --main content-- */
-
- #first-main{
-     width: 72%;
-      margin:5% auto 0% auto;
-     display: block;
- }
-
- article{
-     width: 100%;
-     margin: 0 auto 0 auto;
- 
- }
-#center1{
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 150%;
-    font-family: sans-serif;
-    color:rgba(191, 149, 21, 1);
-    text-align: center;
-}
-#center2 {
-    width: 50%;
-    margin: -2% auto 7% auto;
-    color: grey;
-    text-align: center;
-}
-
-.appet{
-    width: 25%;
-    float: left;
-    margin-left: 4%;
-    margin-bottom: 2%;
-   
-}
- .appet > img{
-    width: 95%;
-    height: 200px;
-}
-#margins{
-   margin-right: 5%;
-}
-.appet p:nth-child(2){
-    width: 50%;
-    margin:10% auto 0 auto;
-    text-align: center;
-    font-size: 1.1em;
-    padding-bottom: 5%;
-    border-bottom: 2px solid white;
-}
-.appet p:nth-child(3){
-    text-align: center;
-}
-.appet p:nth-child(4)
-{
-    text-align: center; 
-}
-#center3{
-    text-align: center;
-   margin-bottom: 4%;
-    font-size: 150%;
-    font-family: sans-serif;
-    color:rgba(191, 149, 21, 1);
-}
-
-#clear{
-    clear: both;
-}
-
-#second-main{
-    display: none;
-     width: 72%;
-      margin:5% auto 0% auto;   
-}
-
-#link1:hover,#link2:hover{ cursor: pointer};
-
-   #fake{
-       display: none;
-   }
 
 
  /* --media querries-- */   
