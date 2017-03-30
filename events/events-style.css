@@ -1,5 +1,6 @@
 @import 'https://fonts.googleapis.com/css?family=David+Libre';
 @import 'https://fonts.googleapis.com/css?family=Droid+Serif';
+@import url("common-style.css");
 body{
  margin: 0;
   padding: 0;
@@ -9,85 +10,8 @@ body{
   font-size:1em;
   box-sizing: border-box;
 }
+#first{ color:#BF9515; }
 
- /* --beggining of logo design-- */
-
-.outer{
-     margin:4% auto 0% auto;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    height:5.27%;
-   max-width:20.25%;
-}
-.inner{
-   border-top: 1px solid white;
-      border-bottom: 1px solid white;
-      height:90%;
-      margin:3% auto;
-      width:90%;
-      text-align: center;
-}
-.inner p{
-     font-size:3em;
-    margin:2px auto;
-    font-family: copperplate;
-}
-#big{
-      margin:0 auto;
-    padding-top: .5%;
-    width: 22%;
-    text-align: center;
-    font-size: 16px;
-    font-family: arial;
-}
-#min-only{
-     font-size:3.5em;
-    margin:2px auto;
-    font-family: copperplate;
-    width: 100%;
-    text-align: center;
-    display: none;
-}
-
- /* --end of logo design-- */
-
-  /* --beggining of nav design-- */
-
-ul{
-   margin: 0 auto;
-    margin-top:3%;
-    list-style-type: none;
-    width: 90%;
-    text-align: center;
-    overflow: hidden;
-    display: block;
-    -webkit-transition: max-height 0.4s ease-in-out;
-    transition: max-height 0.4s ease-in-out;
-}
-li{
-     display: inline-block;
-    margin-bottom: 5%;
-    line-height: 2.5em;
-    font-size: 16px;
-    width: 10.66%;
-  text-align: center;
-    font-family: forum;
-}
-.menu{
-    text-decoration: none;
-    color:white;
-    font-family: forum;
-}
-#fourth{color: #BF9515;}
-a:not(.menu){
-    text-decoration: none;
-    color:#BF9515;   
-}
-.menu:hover{
-    color:#cccc00;
-}
-
-   /* --end of nav design-- */
 
      /* -- main section --*/
 main{
@@ -284,154 +208,22 @@ border-bottom: 1px solid white;
  font-size: 16px;
 }
 
-     /* --the footer-- */
-
-footer{
-  clear:both;
-     margin: 1% auto 0 auto;
-     border-top: 1px solid white;
-     width: 73%;
- }
- .open, .adress{
-      margin-top:2.5%;
-     width: 25%;
-     float: left;
-     margin-right: 3%;
-     line-height: 0.5em;
- }
- .location{
-      margin-top:2%;
-     width: 33%;
-     float: left;
- }
-  .final{
-     color:#BF9515;
-     margin-bottom:5%;
- }
- #foot{
-     margin-top: 0;
- }
-
-      /* --the footer-- */
-
-      /*--   side menu       --*/
-         .open-menu{
-          width: 75%;
-          height: 70px;
-          box-sizing: border-box;
-           padding: 10px 15px;
-          margin-left: 11%;
-          margin-top: 3%;
-          display: none;
-      }
-    #hamb-menu{
-    float: right;
-    clear: both;
-    height: auto; 
-    width: auto; 
-    max-width: 6%; 
-    max-height: 75%;
-    margin-top: -7%;
-    cursor: pointer;
-     margin-right: 8%;
-    }
-    .open-menu p{
-    float: left;
-    text-align: left;
-    font-size: 18px;
-    line-height: 90%;
-    padding-left:15%;
-    font-size: 1.3em;
-}
-
-/*--   side menu       --*/
-         .open-menu{
-          width: 75%;
-          height: 70px;
-          box-sizing: border-box;
-           padding: 10px 15px;
-          margin-left: 11%;
-          margin-top: 3%;
-          display: none;
-      }
-    #hamb-menu{
-    float: right;
-    clear: both;
-    height: auto; 
-    width: auto; 
-    max-width: 6%; 
-    max-height: 75%;
-    margin-top: -7%;
-    cursor: pointer;
-     margin-right: 8%;
-    }
-    .open-menu p{
-    float: left;
-    text-align: left;
-    font-size: 18px;
-    line-height: 90%;
-    padding-left:15%;
-    font-size: 1.3em;
-}
+     
+  /*== media queries ==*/
 
 
-   /* --end of side menu-- */
-
-
-   @media all and (max-width:924px){
-          .location{
-            float: none;
-        }
-        .adress, .open{
-            line-height: .9em;
-        }
-   }
-   @media all and (max-width:830px){
-        .open-menu{
-       display: block;
-   }
-   ul{
-       max-height: 0;
-
-   }
-   li{
-       float: none;
-       width: 100%;
-       text-align: left;
-       margin-bottom: 0;
-       cursor: pointer;
-   }
-   li:hover{
-       background-color:#708090;
-   }
-   .open-on-click{
-    max-height: 20em;
-}
-   }
-   @media all and (max-width:650px){
-       #hamb-menu{
-           margin-top: -40px;
-           height: 25px;
-       }
-   }
-
-   @media all and (max-width:600px){
-        #min-only{
-               display: block;
-               font-size: 2.5em;
-               margin-top: 5%;
-           }
-       .outer{
-           display: none;
-       }    
-   }
     @media all and (max-width:500px){
-       #hamb-menu{
-           max-width: 30px !important;
-       }
+   
        #week p{
-           font-size: 20px;
+           font-size: 15px;
            overflow: hidden;
            width: 60%;
        }
     }
+
+   @media all and (max-width:402px){
+
+     .happy{
+         margin-top: 100px;
+     }
+   } 
