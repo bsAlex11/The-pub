@@ -82,11 +82,7 @@ li{
      border-top: 1px solid white;
      width: 73%;
  }
-  @-moz-document url-prefix() {
-       footer{
-           //margin: 300px auto 0 auto; 
-       }
-  }
+
  .open, .adress{
      margin-top:2.5%;
      width: 25%;
