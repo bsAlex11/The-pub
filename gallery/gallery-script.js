@@ -12,7 +12,6 @@
 
   var imageContainer = document.getElementsByClassName("content")[0];
 
-  //var images = ["drinks.jpg", "sofa.jpg", "sticle.jpg", "faces.jpg","tables.jpg","ham.jpg", "front.jpg", "friends.jpg", "shots.jpg", "malts.jpg","lux.jpg", "foods.jpg", "eggs.jpg", "rose.jpg", "cube.jpg", "wine.jpg"];
 
   var currentImage;
       // globally declared, to be used by multiple functions
@@ -102,7 +101,6 @@
             if(final.indexOf(currentImage) > -1)
                {
                  position = i;
-                 console.log(i +"i");
                  break;
                }
         }
@@ -110,7 +108,6 @@
       // same ideea as in leftArrow function, but going right 
         
           position++;
-          console.log(position);
            if(position == imageList.length)
           position = 0; 
 
