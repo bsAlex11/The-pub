@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
-
 body{
  margin: 0;
   padding: 0;
@@ -11,84 +10,7 @@ body{
   box-sizing: border-box;
 }
 
- /* --beggining of logo design-- */
-
-.outer{
-     margin:4% auto 0% auto;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    height:5.27%;
-   max-width:20.25%;
-}
-.inner{
-   border-top: 1px solid white;
-      border-bottom: 1px solid white;
-      height:90%;
-      margin:3% auto;
-      width:90%;
-      text-align: center;
-}
-.inner p{
-     font-size:3em;
-    margin:2px auto;
-    font-family: copperplate;
-}
-#big{
-      margin:0 auto;
-    padding-top: .5%;
-    width: 22%;
-    text-align: center;
-    font-size: 16px;
-    font-family: arial;
-}
-#min-only{
-     font-size:3.5em;
-    margin:2px auto;
-    font-family: copperplate;
-    width: 100%;
-    text-align: center;
-    display: none;
-}
-
- /* --end of logo design-- */
-
-  /* --beggining of nav design-- */
-
-ul{
-   margin: 0 auto;
-    margin-top:3%;
-    list-style-type: none;
-    width: 90%;
-    text-align: center;
-    overflow: hidden;
-    display: block;
-    -webkit-transition: max-height 0.4s ease-in-out;
-    transition: max-height 0.4s ease-in-out;
-}
-li{
-     display: inline-block;
-    margin-bottom: 5%;
-    line-height: 2.5em;
-    font-size: 16px;
-    width: 10.66%;
-  text-align: center;
-    font-family: forum;
-}
-.menu{
-    text-decoration: none;
-    color:white;
-    font-family: forum;
-}
-#third{color: #BF9515;}
-a:not(.menu){
-    text-decoration: none;
-    color:#BF9515;   
-}
-.menu:hover{
-    color:#cccc00;
-}
-
-   /* --end of nav design-- */
+ 
 
    /* --main content-- */
  
@@ -128,6 +50,7 @@ h4{
     left: 380%;
     top: 30%;  
     transform: rotate(180deg); 
+    transition: transform .4s ease;
 }
 select{
     margin-left: 30%;
@@ -138,12 +61,20 @@ select{
     font-size: 1em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 8px;
+    background: #BF9515;
+    color: black;
     -webkit-appearance: none;
     background-position-x: 25%; 
+    outline: none;
 }
 select:hover{
-    background-color: lightgrey;
+
+    cursor: pointer;
 }
+.clicked{
+      transform: rotate(0deg);
+}
+
 .menu-presentation{
     width: 56.3%;
     border-right:  0.5px solid grey;
@@ -194,6 +125,7 @@ select:hover{
 }
 #food{
     width: 100%;
+    min-width: 100%;
     height: 270px;
 }
 .wrap{
@@ -362,6 +294,7 @@ button{
     border:0;
     cursor: pointer;
     margin-top: 90px;
+    outline: none;
 }
 button:hover{
      box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
@@ -498,71 +431,6 @@ button:hover{
     opacity: 1 !important;
 }
 
-        /*-- shop part --*/
-        
-     /* --main content-- */
-
-       /* --the footer-- */
-
-footer{
-  clear:both;
-     margin: 1% auto 0 auto;
-     border-top: 1px solid white;
-     width: 73%;
- }
- .open, .adress{
-      margin-top:2.5%;
-     width: 25%;
-     float: left;
-     margin-right: 3%;
-     line-height: 0.5em;
- }
- .location{
-      margin-top:2%;
-     width: 33%;
-     float: left;
- }
-  .final{
-     color:#BF9515;
-     margin-bottom:5%;
- }
- #foot{
-     margin-top: 0;
- }
-
-      /* --the footer-- */
-
-      /*--   side menu       --*/
-         .open-menu{
-          width: 75%;
-          height: 70px;
-          box-sizing: border-box;
-           padding: 10px 15px;
-          margin-left: 11%;
-          margin-top: 3%;
-          display: none;
-      }
-    #hamb-menu{
-    float: right;
-    clear: both;
-    height: auto; 
-    width: auto; 
-    max-width: 6%; 
-    max-height: 75%;
-    margin-top: -7%;
-    cursor: pointer;
-     margin-right: 8%;
-    }
-    .open-menu p{
-    float: left;
-    text-align: left;
-    font-size: 18px;
-    line-height: 90%;
-    padding-left:15%;
-    font-size: 1.3em;
-}
-
-   /* --end of side menu-- */
 
         /* === modal == */
 
@@ -664,6 +532,7 @@ footer{
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
+    outline: none;
 }
  #order-button:hover{
        box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
@@ -681,9 +550,10 @@ footer{
 
 
 #close-modal{
-    max-height: 30px;
-    margin-top: -20px;
-    margin-left: 395px;
+    height: 40px;
+    width: 40px;
+    margin-top: -18px;
+    margin-left: 385px;
     position: absolute;
     z-index: 12;
     cursor: pointer;
@@ -1047,6 +917,34 @@ footer{
           margin-left: 59%;
       }
 
+     #backToPayment{
+         margin-left: 10%;
+     }
+     #sentOrder{
+         margin-left: 79%;
+     }
+    #sent{
+       
+        border-radius: 5px;
+        background: #708090;
+        color: white;
+        width: 50%;
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        z-index: 50;
+        display: none;
+    }
+    #sent p{
+        text-align: center;
+    }
+    #sent img{
+        width: 55px;
+        height: 55px;
+        margin: 30px auto;
+        display: block;
+    }
+
 
      /* == items from order in purchase window ==*/
 
@@ -1335,3 +1233,278 @@ select{
                  margin-top: -15%;
              }
    }
+
+
+
+
+   /*==common style==*/
+
+     /* --logo design-- */
+
+.outer{
+    margin:4% auto 0% auto;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    height:5.27%;
+   max-width:20.25%;
+
+}
+.inner{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    height:90%;
+    margin:3% auto;
+    width:90%;
+    text-align: center;
+}
+.inner p{
+    font-size:3em;
+    margin:2px auto;
+    font-family: copperplate;
+}
+#min-only{
+     font-size:3.5em;
+    margin:2px auto;
+    font-family: copperplate;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+#big{
+    margin:0 auto;
+    padding-top: .5%;
+    width: 22%;
+    text-align: center;
+    font-size: 16px;
+    font-family: arial;
+}
+
+       /* --the nav bar-- */
+
+ul{
+    margin: 0 auto;
+    margin-top:3%;
+    list-style-type: none;
+    width: 90%;
+    text-align: center;
+    overflow: hidden;
+    display: block;
+    -webkit-transition: max-height 0.4s ease-in-out;
+    transition: max-height 0.4s ease-in-out;
+}
+li{
+    display: inline-block;
+    margin-bottom: 5%;
+    line-height: 2.5em;
+    font-size: 16px;
+    width: 10.66%;
+  text-align: center;
+}
+.menu{
+    text-decoration: none;
+    color:white;
+    font-family: forum;
+}
+ #first{ color:#BF9515; }
+ a:not(.menu){
+    text-decoration: none;
+    color:#BF9515;   
+}
+.menu:hover{
+    color:#cccc00;
+}
+ 
+
+
+     footer{
+     clear:both;
+     margin: 1% auto 0 auto;
+     border-top: 1px solid white;
+     width: 73%;
+ }
+ 
+ .open, .adress{
+     margin-top:2.5%;
+     width: 25%;
+     float: left;
+     margin-right: 3%;
+     line-height: 0.5em;
+  
+ }
+ .location{
+     margin-top:2%;
+     width: 33%;
+     float: left;
+ }
+ .final{
+     color:#BF9515;
+     margin-bottom:5%;
+ }
+ #foot{
+     margin-top: 0;
+ }
+
+ 
+
+  /*--   side menu       --*/
+      .open-menu{
+          width: 75%;
+          height: 70px;
+          box-sizing: border-box;
+           padding: 10px 15px;
+          margin-left: 11%;
+          margin-top: 3%;
+          display: none;
+      }
+    #hamb-menu{
+         width: 45px;
+         height: 45px;
+        float: right;
+        clear: right;
+         margin-top: 2px;
+         cursor: pointer;
+         margin-right: 8%;
+    }
+    .open-menu p{
+    float: left;
+    text-align: left;
+    font-size: 18px;
+    line-height: 90%;
+    padding-left:15%;
+    font-size: 1.3em;
+}
+
+          /*== media queries ==*/
+
+   @media screen and (max-width:1100px){
+        .outer{
+         display: none;
+        }     
+        #min-only{
+            display: block;
+            font-size: 2.5em;
+            margin-top: 5%;
+        }
+    }
+
+     @media screen and (max-width:1049px) {
+
+      .location a img{
+      width: 100%;
+  }
+     }
+
+     @media screen and (max-width:985px){
+ 
+         nav ul li {
+             width: 12%;
+             padding:0px;
+         }
+     }
+
+      @media screen and (max-width:964px){
+
+      .adress p:nth-child(2){
+          width: 85%;
+          line-height: 15px;
+      }
+   } 
+
+    
+    @media screen and (max-width:894px) {
+          
+ main{
+       margin-top: 2%;
+       margin-bottom: 2%;
+   }
+
+       article{
+           width: 100%;
+           float: none;
+       }
+   .open-menu{
+       display: block;
+   }
+  
+   ul{
+       max-height: 0;
+       width: 50%;
+       margin: 5% auto 2% auto;
+   }
+  nav ul li{
+       float: none;
+       width: 80%;
+       padding: 0;
+       text-align: left;
+       margin-bottom: 0;
+       cursor: pointer;
+       display: block;
+       margin-left: 0px;
+   }
+   li:hover{
+       background-color:#708090;
+   }
+   li a{
+       height: 100%;
+       width: 100%;
+       padding-left: 5px;
+       display: block;
+   }
+   .open-on-click{
+    max-height: 20em;
+}
+       .image{
+           display: none;
+       }
+      
+     .open, .adress{
+         float: none;
+         width: 50%;
+         box-sizing: border-box;    
+     }     
+     .location{
+         float: none;
+         width: 45%; 
+     }
+    }
+
+     @media screen and (max-width:781px) {
+
+         #hamb-menu{
+            width: 40px;
+            height: 40px;
+            margin-top: 5px;
+        }
+     }
+
+      @media screen and (max-width:540px) {
+            
+            #hamb-menu{
+            width: 35px;
+            height: 35px;
+            margin-top: 10px;
+        }
+             .location{
+                 width: 55%;
+             }
+      }
+
+      @media screen and (max-width:370px) {
+
+            #hamb-menu{
+                height: 30px;
+                width: 30px;
+                margin-top: 15px;
+            }
+            #big{
+                width: 100%;
+            }
+      }
+
+       @media screen and (max-width:349px) {
+
+            .open, .adress{
+                line-height: 1em;
+            }
+       }

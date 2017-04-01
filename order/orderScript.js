@@ -1,10 +1,12 @@
-/* var img = document.getElementById("image");
-var select = document.getElementById("list");
+ var img = document.getElementById("image");
+var select = document.getElementsByTagName("select");
 
    for(var i=0; i<select.length; i++)
-      if(select[i].checked) 
-  img.style.webkitTransform = "rotate(180deg)";
- */
+      select[i].addEventListener("change",function(){
+          console.log(this);
+          img.classList.toggle("clicked");
+      });
+ 
       // == drop-down menu code ==   //
 
 var buton = document.getElementById("hamb-menu");
@@ -674,5 +676,19 @@ var progressList = document.getElementsByClassName("bubble");
               }       
 
         }
+
+        /*== confirmation message ==*/
+
+        var messageBox = document.getElementById("sent"),
+            placeOrdeBt = document.getElementById("sentOrder");
+
+        placeOrdeBt.addEventListener("click",function(){
+
+            messageBox.style.display = "block";
+            setTimeout(function(){
+                 messageBox.style.display = "none";
+                 window.location.reload();
+            },1500);
+        });    
 
   
