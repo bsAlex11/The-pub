@@ -1,13 +1,6 @@
- var img = document.getElementById("image");
-var select = document.getElementsByTagName("select");
 
-   for(var i=0; i<select.length; i++)
-      select[i].addEventListener("change",function(){
-          console.log(this);
-          img.classList.toggle("clicked");
-      });
  
-      // == drop-down menu code ==   //
+      // == drop-down menu ==   //
 
 var buton = document.getElementById("hamb-menu");
    buton.addEventListener("click",apasa);
